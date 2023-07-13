@@ -4,6 +4,7 @@ import Router from './routes';
 import axios from 'axios';
 
 import './static/css/index.scss';
+import { HashRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
   const [rooms, setRooms] = React.useState([]);
@@ -22,12 +23,23 @@ function App() {
     }
   });
 
-  return <React.Fragment>
-      <div className="App">
-        <ResponsiveAppBar rooms={rooms} />
-        <Router rooms={rooms} />
-      </div>
-  </React.Fragment>
+  const router = createHashRouter([
+    {
+      path: "/*",
+      element: <React.StrictMode>
+        <HashRouter>
+          <div className="App">
+            <ResponsiveAppBar rooms={rooms} />
+            <Router rooms={rooms} />
+          </div>
+        </HashRouter>
+      </React.StrictMode>,
+    }
+  ]);
+
+  return <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 }
 
 export default App;
