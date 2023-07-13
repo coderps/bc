@@ -24,7 +24,7 @@ function App() {
 
   return <div className="App">
     <ResponsiveAppBar rooms={rooms} />
-     <Router rooms={rooms} />
+    <Router rooms={rooms} />
   </div>
 }
 
