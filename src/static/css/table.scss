@@ -1,0 +1,145 @@
+@import 'colors';
+
+$borderNormal: #{1px solid $border-color};
+$borderThick: #{2px solid $border-color};
+
+.flexer {
+    display: flex;
+
+    >* {
+        flex: 1;
+    }
+
+    .flex-exception {
+        flex: 2;
+    }
+
+    input {
+        width: 85%;
+        background-color: transparent;
+    }
+}
+
+// FONTS
+.fontColorBlack {
+    color: $tc-val-fontcolor;
+}
+
+.fontColorWhite {
+    color: $default-fontcolor;
+}
+
+.fontColorDisabled {
+    color: $disabled-fontcolor;
+}
+
+.fontColorIrene {
+    color: $babes-fontcolor;
+}
+
+.fontColorPrax {
+    color: $my-fontcolor;
+}
+
+.fontBig {
+    font-size: 24px;
+}
+
+//BORDERS
+.borderNormal {
+    border: $borderNormal;
+}
+
+.borderThick {
+    border: $borderThick;
+}
+
+.borderRightNormal {
+    border-right: $borderNormal;
+}
+
+.borderRightThick {
+    border-right: $borderThick;
+}
+
+.borderLeftNormal {
+    border-left: $borderNormal;
+}
+
+.borderLeftThick {
+    border-left: $borderThick;
+}
+
+.borderRightThick {
+    border-right: $borderThick;
+}
+
+.borderBottomNormal {
+    border-bottom: $borderNormal;
+}
+
+.borderBottomThick {
+    border-bottom: $borderThick;
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+// OTHERS
+.editBtn:hover {
+    cursor: pointer;
+    user-select: none;
+    color: $btn-onhover-color;
+}
+
+.pointerBtn:hover {
+    @extend .editBtn;
+}
+
+.visibility:hover {
+    background-color: #666;
+    opacity: 0.9;
+}
+
+.iheaderClass {
+    @extend .fontColorBlack;
+    @extend .borderRightNormal;
+    background-color: $babes-bgcolor;
+}
+
+.pheaderClass {
+    @extend .fontColorBlack;
+    background-color: $my-bgcolor;
+}
+
+.disablediHeader {
+    @extend .iheaderClass;
+    background-color: $disabled-bgcolor;
+}
+
+.disabledpHeader {
+    @extend .pheaderClass;
+    background-color: $disabled-bgcolor;
+}
+
+.table-actions {
+    @extend .borderBottomThick;
+    @extend .flex-exception;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.nameAndPoints {
+    display: flex;
+
+    > div:first-child {
+        flex: 1.9;
+        text-align: left;
+    }
+
+    > div:last-child {
+        flex: 0.1;
+        text-align: right;
+    }
+}

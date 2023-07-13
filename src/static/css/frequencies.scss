@@ -1,0 +1,77 @@
+@import 'colors';
+
+// BEFORE
+.before7 {
+    color: $days-before-7-fontcolor;
+}
+
+.before6 {
+    color: $days-before-6-fontcolor;
+}
+
+.before5 {
+    color: $days-before-5-fontcolor;
+}
+
+.before4 {
+    color: $days-before-4-fontcolor;
+}
+
+.before3 {
+    color: $days-before-3-fontcolor;
+}
+
+.before2 {
+    color: $days-before-2-fontcolor;
+}
+
+.before1 {
+    color: $days-before-1-fontcolor;
+}
+
+// DUE DATE
+.due {
+    @extend .before1;
+    background-color: $days-after-0-bgcolor;
+}
+
+// AFTER
+.after1 {
+    @extend .before1;
+    background-color: $days-after-1-bgcolor;
+}
+
+.after2 {
+    @extend .before1;
+    background-color: $days-after-2-bgcolor;
+}
+
+.after3 {
+    @extend .before1;
+    background-color: $days-after-3-bgcolor;
+}
+
+.after4 {
+    @extend .before1;
+    background-color: $days-after-4-bgcolor;
+}
+
+.after5 {
+    @extend .before1;
+    background-color: $days-after-5-bgcolor;
+}
+
+.after6 {
+    @extend .before1;
+    background-color: $days-after-6-bgcolor;
+}
+
+.after7 {
+    @extend .before1;
+    background-color: $days-after-7-bgcolor;
+}
+
+.after7plus {
+    color: $days-after-7-fontcolor;
+    background-color: $days-after-7-bgcolor;
+}
