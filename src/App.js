@@ -2,7 +2,6 @@ import React from 'react';
 import ResponsiveAppBar from './components/appBar';
 import Router from './routes';
 import axios from 'axios';
-import { HashRouter } from 'react-router-dom';
 
 import './static/css/index.scss';
 
@@ -24,12 +23,10 @@ function App() {
   });
 
   return <React.Fragment>
-    <HashRouter>
       <div className="App">
         <ResponsiveAppBar rooms={rooms} />
         <Router rooms={rooms} />
       </div>
-    </HashRouter>
   </React.Fragment>
 }
 

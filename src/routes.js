@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Page from './components/page';
 
 const Router = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<div>index</div>} />
         {props.rooms.map((room, idx) => 
@@ -14,7 +14,7 @@ const Router = (props) => {
           />
         )}
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
