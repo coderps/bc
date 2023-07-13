@@ -93,7 +93,7 @@ const ResponsiveAppBar = (props) => {
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography 
                     component="a"
-                    href={"/rooms/"+page.name.replace(' ','-')}
+                    href={"/"+page.name.replace(' ','-')}
                     textAlign="center"
                     textDecoration="none"
                   >
@@ -128,7 +128,7 @@ const ResponsiveAppBar = (props) => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 component="a"
-                href={"/rooms/"+page.name.replace(' ','-')}
+                href={"/"+page.name.replace(' ','-')}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page.name}
