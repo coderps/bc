@@ -7,11 +7,11 @@ const Router = (props) => {
     <React.StrictMode>
       <HashRouter>
         <Routes>
-          <Route path="/bc" element={<div>index</div>} />
+          <Route path="/" element={<div>index</div>} />
           {props.rooms.map((room, idx) => 
             <Route 
               key={idx} 
-              path={"bc/rooms/"+room.name.replace(' ','-')} 
+              path={"/rooms/"+room.name.replace(' ','-')} 
               element={<Page room={room} />} 
             />
           )}
