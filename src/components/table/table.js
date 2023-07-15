@@ -64,8 +64,9 @@ const Table = (props) => {
 
     React.useEffect(() => {
         if (!ready) {
-            console.log('updating table...');
-            axios.get('https://praxtheslayer.pythonanywhere.com/api/stuff-records?where='+props.page+'&week='+week)
+            const url = 'https://praxtheslayer.pythonanywhere.com/api/stuff-records?where='+props.page+'&week='+week;
+            console.log('updating table with url: ', url);
+            axios.get(url)
             .then(response => {
                 console.log('data:', response.data);
                 setData(response.data);

@@ -11,7 +11,7 @@ function App() {
 
   React.useEffect(() => {
     if (!ready) {
-      console.log('updating table...');
+      console.log('updating rooms...');
       axios.get('https://praxtheslayer.pythonanywhere.com/api/rooms/') //192.168.1.143
       .then(response => {
           console.log('rooms:', response.data);

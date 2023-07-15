@@ -16,7 +16,14 @@ const Router = (props) => {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Page />} />
+        <Route path="#/" element={<Page />} />
+        {props.rooms.map((room, idx) => 
+          <Route 
+            key={idx} 
+            path={"#/"+room.id} 
+            element={<Page room={room.id} />} 
+          />
+        )}
       </Routes>
     </HashRouter>
   );
