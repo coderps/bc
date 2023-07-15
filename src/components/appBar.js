@@ -13,12 +13,16 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { person2 } from '../api/getWinningPerson';
+import { useLocation } from 'react-router-dom';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = (props) => {
+  const location = useLocation();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [ready, setReady] = React.useState(false);
+  const [url, setUrl] = React.useState('');
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -52,6 +56,13 @@ const ResponsiveAppBar = (props) => {
   >
     BREAKING CHUTIYA
   </Typography>;
+
+  React.useEffect(() => {
+    if (!ready) {
+      setUrl(location.pathname.slice(0, location.pathname.lastIndexOf('/')));
+      setReady(true);
+    }
+  }, [location.pathname, ready])
 
   return (
     <AppBar position="static" sx={{backgroundColor: person2.color}}>
@@ -93,7 +104,7 @@ const ResponsiveAppBar = (props) => {
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography 
                     component="a"
-                    href={"/?room="+page.id}
+                    href={url+"?room="+page.id}
                     textAlign="center"
                     textDecoration="none"
                   >
@@ -128,7 +139,7 @@ const ResponsiveAppBar = (props) => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 component="a"
-                href={"/?room="+page.id}
+                href={url+"?room="+page.id}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page.name}
