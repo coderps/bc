@@ -17,7 +17,7 @@ const Overview = (props) => {
     // />
     return <React.Fragment>
         <br />
-        <Table page={props.page.id}/>
+        <Table page={props.page}/>
         <br />
     </React.Fragment>
 }

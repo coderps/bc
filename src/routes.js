@@ -1,11 +1,8 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
 import Page from './components/page';
 
-const Router = (props) => {
-  return (
-    <HashRouter basename="/">
-      <Routes>
-        <Route path="/" element={<div>index</div>} />
+/*
+
         {props.rooms.map((room, idx) => 
           <Route 
             key={idx} 
@@ -13,6 +10,13 @@ const Router = (props) => {
             element={<Page room={room} />} 
           />
         )}
+*/
+
+const Router = (props) => {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Page />} />
       </Routes>
     </HashRouter>
   );
