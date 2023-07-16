@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import Overview from '../pages/overview';
+import Overview from './overview';
 
 const Page = (props) => {
     return <React.Fragment>
@@ -16,7 +16,7 @@ const Page = (props) => {
               width: '80%',
               margin: '0 auto',
             }}>
-            {props.room ? <Overview page={props.room} /> : <div>index</div> }
+            <Overview page={props.room} />
         </Typography>
     </React.Fragment>
 }
