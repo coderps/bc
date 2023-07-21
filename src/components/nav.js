@@ -7,10 +7,10 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Page from './page';
 import { person2 } from '../api/getWinningPerson';
+import Stats from './stats/stats';
 
 const Nav = () => {
     const [value, setValue] = React.useState(0);
-    //const [rooms, setRooms] = React.useState([]);
     const [tabs, setTabs] = React.useState([]);
     const [tabPanels, setTabPanels] = React.useState([]);
     const [roomsReady, setRoomsReady] = React.useState(false);
@@ -55,7 +55,7 @@ const Nav = () => {
                     <Tab label="Shop" value={tabs.length+1} sx={{color: 'white'}}/>
                 </TabList>
             </Box>
-            <TabPanel value={0}>Stats</TabPanel>
+            <TabPanel value={0}><Stats /></TabPanel>
             {tabPanels}
             <TabPanel value={tabs.length+1}>Shop</TabPanel>
         </TabContext>
