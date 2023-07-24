@@ -13,7 +13,7 @@ const DN = (props) => {
             },
             title: {
                 display: true,
-                text: 'overall',
+                text: props.title,
             },
         },
     };

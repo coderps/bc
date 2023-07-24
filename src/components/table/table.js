@@ -60,7 +60,9 @@ const Table = (props) => {
     const [data, setData] = React.useState({total: [0, 0], total_day: [[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]]});
     const [editMode, setEditMode] = React.useState(false);
     const [postData, setPostData] = React.useState({"airin": [], "prax": []});
+    const [maxWidth, setMaxWidth] = React.useState(100);
     const dates = getDatesInWeek((new Date()).getFullYear(), week-1);
+
 
     React.useEffect(() => {
         if (!ready) {
@@ -113,6 +115,10 @@ const Table = (props) => {
       setPostData({"airin": [], "prax": []});
     }
 
+    const alignWidthFunc = (width) => {
+      setMaxWidth(width);
+    }
+
     return <table style={{width: '100%', color: 'white', textAlign: 'center', letterSpacing: 1}}>
         <thead>
             <HeaderRow 
@@ -130,7 +136,7 @@ const Table = (props) => {
                 onEdit={sendPostRequest}
                 cancelFunc={cancelFunc}
             />
-            <DataRows data={data} editMode={editMode} dates={dates} saveValsFunc={saveValues}/>
+            <DataRows data={data} editMode={editMode} dates={dates} saveValsFunc={saveValues} alignWidthFunc={alignWidthFunc}/>
             <TotalDayValues vals={data.total_day} val1={data.total[0]} val2={data.total[1]}/>
         </thead>
     </table>

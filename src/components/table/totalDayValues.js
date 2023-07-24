@@ -5,8 +5,9 @@ import '../../static/css/table.scss';
 const TotalDayValues = (props) => {
     const tf1 = props.val1 >= props.val2 ? 24 : 16;
     const tf2 = props.val2 >= props.val1 ? 24 : 16;
+
     return <tr className="flexer borderThick">
-        <td className="flex-exception borderRightThick">
+        <td className="flex-exception borderRightThick" style={{width: `${props.width}px`}}>
             <div style={{fontSize: '2vw'}}>TOTAL</div>
             <div style={{fontSize: '1vw'}}>DAY</div>
         </td>

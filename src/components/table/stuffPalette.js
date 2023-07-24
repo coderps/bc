@@ -33,12 +33,10 @@ function getClassName(f, ld) {
 
 const StuffWithColor = (props) => {
     const className = getClassName(props.frequency, props.lastDone);
-    return <React.Fragment>
-        <div className="nameAndPoints">
-            <div className={className}>{props.name}</div>
-            <div className={className}>{parseFloat(props.points).toFixed(2)}</div>
-        </div>
-    </React.Fragment>
+    return <div className="nameAndPoints">
+        <div className={className}>{props.name}</div>
+        <div className={className}>{parseFloat(props.points).toFixed(2)}</div>
+    </div>
 }
 
 export default StuffWithColor;
