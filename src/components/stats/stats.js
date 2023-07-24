@@ -18,7 +18,6 @@ const Stats = () => {
         vp: [],
         total: [50, 50]
     });
-
     
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
@@ -107,9 +106,13 @@ const Stats = () => {
     }
 
     const TakeVacation = () => {
+        const handleOnClick = (p) => {
+            p === 'prax' ? setOnVac([onVac[0], !onVac[1]]) : setOnVac([!onVac[0], onVac[1]]);
+        }
+
         return <div>
             <h1 style={{color: 'orange'}}>Take vacation?</h1>
-            <button style={{
+            <button onClick={() => handleOnClick('airin')} style={{
                 color: 'white', 
                 backgroundColor: onVac[0] ? 'green' : person1.color, 
                 border: '0px solid black', 
@@ -118,7 +121,7 @@ const Stats = () => {
             }}>
                 <b>{onVac[0] ? 'REVOKE FOR AIRIN' : 'AIRIN'}</b>
             </button>
-            <button style={{
+            <button onClick={() => handleOnClick('prax')} style={{
                 color: 'white', 
                 backgroundColor: onVac[1] ? 'green' : person2.color, 
                 border: '0px solid black', 

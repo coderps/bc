@@ -7,22 +7,14 @@ import '../../static/css/table.scss';
 
 const DataRows = (props) => {
     const skipKeys = ["total_day", "total", "last_done", "frequency"];
-    const parentRef = React.useRef(null);
-    const [maxChildWidth, setMaxChildWidth] = React.useState(0);
-
-    React.useEffect(() => {
-        if (parentRef.current) {
-            const children = Array.from(parentRef.current.children);
-            const maxWidth = Math.max(...children.map(child => child.getBoundingClientRect().width));
-            setMaxChildWidth(maxWidth);
-        }
-    }, [maxChildWidth]);
+    const maxWidth = Math.max(...Object.keys(props.data).sort().map((stuff) => stuff.length))*12;
+    props.alignWidthFunc(maxWidth);
 
     return Object.keys(props.data).sort().map((stuff, idx) => {
         const batch5Classname = (idx + 1) % 5 ? '' : 'borderBottomNormal';
         if (!skipKeys.includes(stuff)) {
-            return <tr key={idx} className={"flexer visibility " + batch5Classname} ref={parentRef}>
-                <td className="flex-exception borderLeftThick borderRightThick" style={{width: `${maxChildWidth}px`}}>
+            return <tr key={idx} className={"flexer visibility " + batch5Classname}>
+                <td className="flex-exception borderLeftThick borderRightThick" style={{width: `${maxWidth}px`}}>
                     <StuffWithColor 
                         name={stuff}
                         points={props.data[stuff].points}

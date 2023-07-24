@@ -135,9 +135,10 @@ const Table = (props) => {
                 editMode={editMode}
                 onEdit={sendPostRequest}
                 cancelFunc={cancelFunc}
+                maxWidth={maxWidth}
             />
             <DataRows data={data} editMode={editMode} dates={dates} saveValsFunc={saveValues} alignWidthFunc={alignWidthFunc}/>
-            <TotalDayValues vals={data.total_day} val1={data.total[0]} val2={data.total[1]}/>
+            <TotalDayValues vals={data.total_day} val1={data.total[0]} val2={data.total[1]} maxWidth={maxWidth}/>
         </thead>
     </table>
 }

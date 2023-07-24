@@ -4,7 +4,7 @@ import '../../static/css/table.scss';
 
 const HeaderRow = (props) => {
     return <tr className="flexer" style={{letterSpacing: 3}}>
-        <td className="table-actions">
+        <td className="table-actions" style={{width: `${props.maxWidth}px`}}>
             <div className="fontBig editBtn" onClick={props.onEdit}>{props.editMode ? 'SAVE' : 'EDIT'}</div>
             <div className="editBtn" onClick={props.cancelFunc}>CANCEL</div>
             <div className="flexer">

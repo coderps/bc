@@ -7,9 +7,9 @@ const TotalDayValues = (props) => {
     const tf2 = props.val2 >= props.val1 ? 24 : 16;
 
     return <tr className="flexer borderThick">
-        <td className="flex-exception borderRightThick" style={{width: `${props.width}px`}}>
-            <div style={{fontSize: '2vw'}}>TOTAL</div>
-            <div style={{fontSize: '1vw'}}>DAY</div>
+        <td className="flex-exception borderRightThick" style={{width: `${props.maxWidth}px`}}>
+            <div style={{fontSize: 32}}>TOTAL</div>
+            <div style={{fontSize: 24}}>DAY</div>
         </td>
         {props.vals.map((p, idx) => {
             const f1 = p[0] >= p[1] ? 24 : 16;
