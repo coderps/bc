@@ -16,6 +16,7 @@ const Stats = () => {
         avg: [],
         cc: [],
         vp: [],
+        vacations: [[], []],
         total: [50, 50]
     });
     
@@ -134,6 +135,44 @@ const Stats = () => {
         </div>
     }
 
+    const VacationRecords = () => {
+        const getMonthName = (month) => {
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            return monthNames[month];
+        }
+
+        const getFormattedDay = (day) => {
+            if (day >= 11 && day <= 13) {
+                return day + 'th';
+            }
+            switch (day % 10) {
+                case 1:
+                    return day + 'st';
+                case 2:
+                    return day + 'nd';
+                case 3:
+                    return day + 'rd';
+                default:
+                    return day + 'th';
+            }
+        }
+
+        const formatDate = (day) => {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth(); // Months are 0-indexed, so January is 0, February is 1, etc.
+            const formattedDay = getFormattedDay(day);
+            const monthName = getMonthName(month);
+            return `${formattedDay} ${monthName} ${year}`;
+        }
+
+        return <div style={{fontFamily: 'monospace'}}>
+            <h1 style={{color: 'pink'}}>Vacation Records: </h1>
+            <div style={{color: person1.color}}><b>Airin:</b> {stats.vacations[0].map(d => formatDate(d)).join(", ")}</div>
+            <div style={{color: person2.color}}><b>Prax:</b> {stats.vacations[1].map(d => formatDate(d)).join(", ")}</div>
+        </div>
+    }
+
     return <div style={{width: '80%', margin: '0 auto'}}>
         <div style={{display: 'flex', color: 'white'}}>
             <DoughnutChart />
@@ -149,6 +188,7 @@ const Stats = () => {
             </table>
         </div>
         <LineChart />
+        <VacationRecords />
     </div>
 }
 
