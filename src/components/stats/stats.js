@@ -8,7 +8,11 @@ const Stats = () => {
     const currentDate = new Date();
     const [ready, setReady] = React.useState(false);
     // const [month, setMonth] = React.useState(currentDate.getMonth());
-    const [onVac, setOnVac] = React.useState([false, false]);
+    const [onVac, setOnVac] = React.useState([
+        [false, false],
+        [false, false],
+        [false, false],
+    ]);
     const [labels, setLabels] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]);
     const [stats, setStats] = React.useState({
         airin: [],
@@ -16,6 +20,7 @@ const Stats = () => {
         avg: [],
         cc: [],
         vp: [],
+        last_vp: [0, 0],
         vacations: [[], []],
         total: [50, 50]
     });
@@ -107,38 +112,69 @@ const Stats = () => {
     }
 
     const TakeVacation = () => {
-        const handleOnClick = (p) => {
-            p === 'prax' ? setOnVac([onVac[0], !onVac[1]]) : setOnVac([!onVac[0], onVac[1]]);
+        const handleOnClick = (p, idx) => {
+            var vac = onVac;
+            if (p === 'prax') {
+                vac[idx][1] = !vac[idx][1];
+            } else {
+                vac[idx][0] = !vac[idx][0];
+            }
+            setOnVac(vac);
+            console.log("vac", vac);
         }
 
         return <div>
             <h1 style={{color: 'orange'}}>Take vacation?</h1>
-            <button onClick={() => handleOnClick('airin')} style={{
-                color: 'white', 
-                backgroundColor: onVac[0] ? 'green' : person1.color, 
-                border: '0px solid black', 
-                padding: '15px',
-                fontFamily: 'monospace'
-            }}>
-                <b>{onVac[0] ? 'REVOKE FOR AIRIN' : 'AIRIN'}</b>
-            </button>
-            <button onClick={() => handleOnClick('prax')} style={{
-                color: 'white', 
-                backgroundColor: onVac[1] ? 'green' : person2.color, 
-                border: '0px solid black', 
-                padding: '15px',
-                fontFamily: 'monospace',
-                marginLeft: '10px'
-            }}>
-                <b>{onVac[1] ? 'REVOKE FOR PRAX' : 'PRAX'}</b>
-            </button>
+            <table>
+                <tbody>
+                    {[0,1,2].map(idx => {
+                        return <tr key={idx}>
+                            <td>
+                                <button onClick={() => handleOnClick('airin', idx)} style={{
+                                    color: 'white', 
+                                    backgroundColor: onVac[idx][0] ? 'green' : person1.color, 
+                                    border: '0px solid black', 
+                                    padding: '15px',
+                                    fontFamily: 'monospace'
+                                }}>
+                                    <b>{onVac[idx][0] ? 'REVOKE FOR AIRIN [-' : 'AIRIN ['}{stats.last_vp[0] + ']'}</b>
+                                </button>
+                            </td>
+                            <td>
+                                <button onClick={() => handleOnClick('prax', idx)} style={{
+                                    color: 'white', 
+                                    backgroundColor: onVac[idx][1] ? 'green' : person2.color, 
+                                    border: '0px solid black', 
+                                    padding: '15px',
+                                    fontFamily: 'monospace',
+                                    marginLeft: '10px'
+                                }}>
+                                    <b>{onVac[idx][1] ? 'REVOKE FOR PRAX [-' : 'PRAX ['}{stats.last_vp[1] + ']'}</b>
+                                </button>
+                            </td>
+                        </tr>
+                    })}
+                </tbody>
+            </table>
         </div>
     }
 
     const VacationRecords = () => {
         const getMonthName = (month) => {
-            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            return monthNames[month];
+            return [
+                'January', 
+                'February', 
+                'March', 
+                'April', 
+                'May', 
+                'June', 
+                'July', 
+                'August', 
+                'September', 
+                'October', 
+                'November', 
+                'December',
+            ][month];
         }
 
         const getFormattedDay = (day) => {
