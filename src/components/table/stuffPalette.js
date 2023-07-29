@@ -4,6 +4,9 @@ import '../../static/css/table.scss';
 
 function getClassName(f, ld) {
     var className = '';
+    const skull = "💀";
+    var skulls = "";
+
     if (f) {
         const difference = f - ld;
         switch (difference) {
@@ -27,14 +30,24 @@ function getClassName(f, ld) {
                 }
             break;
         }
+        if (difference < 0) {
+            if (difference >= -3 && difference <= -1) {
+                skulls = skull;
+            } else if (difference >= -6 && difference <= -4) {
+                skulls = skull + skull;
+            } else {
+                skulls = skull + skull + skull;
+            }
+        }
     }
-    return className;
+    return [className, skulls];
 }
 
 const StuffWithColor = (props) => {
-    const className = getClassName(props.frequency, props.lastDone);
+    const cs = getClassName(props.frequency, props.lastDone);
+    const className = cs[0];
     return <div className="nameAndPoints">
-        <div className={className}>{props.name}</div>
+        <div className={className}>{props.name} {cs[1]}</div>
         <div className={className}>{parseFloat(props.points).toFixed(2)}</div>
     </div>
 }
