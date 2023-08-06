@@ -22,7 +22,8 @@ const Stats = () => {
         vp: [],
         last_vp: [0, 0],
         vacations: [[], []],
-        total: [50, 50]
+        total: [50, 50],
+        skulls: [0, 0],
     });
     
     const currentMonth = currentDate.getMonth();
@@ -209,6 +210,14 @@ const Stats = () => {
         </div>
     }
 
+    const Skulls = () => {
+        return <div style={{fontFamily: 'monospace'}}>
+            <h1 style={{color: 'violet'}}>Skulls: </h1>
+            <div style={{color: person1.color}}><b>Airin:</b> {stats.skulls[0]}</div>
+            <div style={{color: person2.color}}><b>Prax:</b> {stats.skulls[1]}</div>
+        </div>
+    }
+
     return <div style={{width: '80%', margin: '0 auto'}}>
         <div style={{display: 'flex', color: 'white'}}>
             <DoughnutChart />
@@ -225,6 +234,7 @@ const Stats = () => {
         </div>
         <LineChart />
         <VacationRecords />
+        <Skulls />
     </div>
 }
 
