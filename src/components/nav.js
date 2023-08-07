@@ -8,6 +8,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Page from './page';
 import { person2 } from '../api/getWinningPerson';
 import Stats from './stats/stats';
+import Shop from './shop/shop';
 
 const Nav = () => {
     const [value, setValue] = React.useState(0);
@@ -57,7 +58,7 @@ const Nav = () => {
             </Box>
             <TabPanel value={0}><Stats /></TabPanel>
             {tabPanels}
-            <TabPanel value={tabs.length+1}>Shop</TabPanel>
+            <TabPanel value={tabs.length+1}><Shop /></TabPanel>
         </TabContext>
     </Box>
 }
