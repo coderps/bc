@@ -54,12 +54,12 @@ const Stats = () => {
     const DoughnutChart = () => {
         return <div style={{height: '300px'}}>
             <DN title="Who did more?" data={{
-                labels: ['Airin', 'Prax'],
+                labels: ['Airin', 'Airin WT', 'Prax', 'Prax WT'],
                 datasets: [{
                     label: 'points',
                     data: stats.total,
-                    backgroundColor: [person1.color, person2.color],
-                    borderColor: [person1.color, person2.color],
+                    backgroundColor: [person1.color, "#AE48BC", person2.color, "#AC6404"],
+                    borderColor: [person1.color, "#AE48BC", person2.color, "#AC6404"],
                     borderWidth: 1,
                 }]
             }}/>
