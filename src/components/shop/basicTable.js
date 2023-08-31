@@ -17,16 +17,16 @@ const darkTheme = createTheme({
 const BasicTable = (props) => {
   return (
     <ThemeProvider theme={darkTheme}>
-        <TableContainer component={Paper} sx={{ maxWidth: "80%", margin: "0 auto" }}>
+        <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
                 <TableRow>
                     <TableCell><b>Item</b></TableCell>
                     <TableCell align="right"><b>Cost</b></TableCell>
-                    <TableCell align="center"><b>Purchase</b></TableCell>
-                    <TableCell align="center"><b>Redeem</b></TableCell>
                     <TableCell align="right"><b>Airin</b></TableCell>
                     <TableCell align="right"><b>Prax</b></TableCell>
+                    <TableCell align="center"><b>Redeem</b></TableCell>
+                    <TableCell align="center"><b>Purchase</b></TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
@@ -34,16 +34,16 @@ const BasicTable = (props) => {
                 <TableRow key={row.id}>
                     <TableCell sx={{color: "wheat"}}>{row.item}</TableCell>
                     <TableCell align="right">{row.cost}</TableCell>
-                    <TableCell align="center">
-                        <input id={"ap"+row.id} type="number" style={{width: "30px"}} step="0.1"/>
-                        <input id={"pp"+row.id} type="number" style={{width: "30px"}} step="0.1"/>
-                    </TableCell>
+                    <TableCell align="right">0</TableCell>
+                    <TableCell align="right">0</TableCell>
                     <TableCell align="center">
                         <input id={"ar"+row.id} type="number" style={{width: "30px"}} step="0.1"/>
                         <input id={"pr"+row.id} type="number" style={{width: "30px"}} step="0.1"/>
                     </TableCell>
-                    <TableCell align="right">0</TableCell>
-                    <TableCell align="right">0</TableCell>
+                    <TableCell align="center">
+                        <input id={"ap"+row.id} type="number" style={{width: "30px"}} step="0.1"/>
+                        <input id={"pp"+row.id} type="number" style={{width: "30px"}} step="0.1"/>
+                    </TableCell>
                 </TableRow>
             ))}
             </TableBody>

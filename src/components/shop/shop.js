@@ -29,8 +29,9 @@ const Shop = () => {
         }
     })
 
-    return <div style={{color: "wheat"}}>
+    return <div style={{color: "wheat", width: "80%", margin: "0 auto"}}>
         <ChutiyaCoins />
+        <br />
         <BasicTable items={items} />
     </div>
 }
