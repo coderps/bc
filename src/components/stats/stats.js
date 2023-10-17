@@ -3,6 +3,7 @@ import axios from "axios";
 import { person1, person2 } from "../../api/getWinningPerson";
 import DN from "../../charts/doughnut";
 import LC from "../../charts/linechart";
+import UpNext from "./upnext";
 
 const Stats = () => {
     const currentDate = new Date();
@@ -218,6 +219,13 @@ const Stats = () => {
         </div>
     }
 
+    const NextStuffs = () => {
+        return <div style={{fontFamily: 'monospace'}}>
+            <h1 style={{color: 'crimson'}}>Up Next: </h1>
+            <UpNext />
+        </div>
+    }
+
     return <div style={{width: '80%', margin: '0 auto'}}>
         <div style={{display: 'flex', color: 'white'}}>
             <DoughnutChart />
@@ -235,6 +243,7 @@ const Stats = () => {
         <LineChart />
         <VacationRecords />
         <Skulls />
+        <NextStuffs />
     </div>
 }
 
