@@ -9,11 +9,11 @@ const Stats = () => {
     const currentDate = new Date();
     const [ready, setReady] = React.useState(false);
     // const [month, setMonth] = React.useState(currentDate.getMonth());
-    const [onVac, setOnVac] = React.useState([
+    /*const [onVac, setOnVac] = React.useState([
         [false, false],
         [false, false],
         [false, false],
-    ]);
+    ]);*/
     const [labels, setLabels] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]);
     const [stats, setStats] = React.useState({
         airin: [],
@@ -100,20 +100,20 @@ const Stats = () => {
     const AVG = () => {
         return <div style={{padding: '10px'}}>
             <h1 style={{color: 'yellow'}}>Average</h1>
-            <div style={{color: person1.color}}><b>Airin:</b> {stats.avg.length ? stats.avg[0] : 0}</div>
-            <div style={{color: person2.color}}><b>Prax:</b> {stats.avg.length ? stats.avg[1] : 0}</div>
+            <div style={{color: person1.color}}><b>Airin:</b> {stats.avg.length ? stats.avg[0].toFixed(2) : 0}</div>
+            <div style={{color: person2.color}}><b>Prax:</b> {stats.avg.length ? stats.avg[1].toFixed(2) : 0}</div>
         </div>
     }
 
     const VP = () => {
         return <div style={{padding: '10px'}}>
             <h1 style={{color: 'aquamarine'}}>Vacation Points</h1>
-            <div style={{color: person1.color}}><b>Airin:</b> {stats.vp.length ? stats.vp[0] : 0}</div>
-            <div style={{color: person2.color}}><b>Prax:</b> {stats.vp.length ? stats.vp[1] : 0}</div>
+            <div style={{color: person1.color}}><b>Airin:</b> {stats.vp.length ? stats.vp[0].toFixed(2) : 0}</div>
+            <div style={{color: person2.color}}><b>Prax:</b> {stats.vp.length ? stats.vp[1].toFixed(2) : 0}</div>
         </div>
     }
 
-    const TakeVacation = () => {
+    /*const TakeVacation = () => {
         const handleOnClick = (p, idx) => {
             var vac = onVac;
             if (p === 'prax') {
@@ -159,7 +159,7 @@ const Stats = () => {
                 </tbody>
             </table>
         </div>
-    }
+    }*/
 
     const VacationRecords = () => {
         const getMonthName = (month) => {
@@ -235,7 +235,6 @@ const Stats = () => {
                         <td><AVG /></td>
                         <td><CC /></td>
                         <td><VP /></td>
-                        <td><TakeVacation /></td>
                     </tr>
                 </tbody>
             </table>
