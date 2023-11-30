@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { person1, person2 } from "../../api/getWinningPerson";
-import BasicTable from "./basicTable";
+import BasicTable, { ShopCards } from "./basicTable";
 
 const Shop = () => {
     const [ready, setReady] = React.useState(false);
@@ -31,6 +31,8 @@ const Shop = () => {
 
     return <div style={{color: "wheat", width: "80%", margin: "0 auto"}}>
         <ChutiyaCoins />
+        <br />
+        <ShopCards items={items}/>
         <br />
         <BasicTable items={items} />
     </div>

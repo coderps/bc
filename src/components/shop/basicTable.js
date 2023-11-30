@@ -7,12 +7,66 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import NormalMassageIcon from '../../static/images/NormalMassage.png';
 
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
 });
+
+export const BasicCard = (props) => {
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <TableContainer component={Card} sx={{ maxWidth: 250 }}>
+      <Card>
+        <CardContent sx={{display: 'flex', justifyContent: 'center'}}>
+          <div style={{margin: '0 auto', textAlign: 'center'}}>
+            <img src={props.img} alt="normal massage" style={{maxWidth: '100px'}}/>
+            <Typography variant="h5" component="div">
+              {props.title}
+            </Typography>
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+              Cost: {props.cost} cc
+            </Typography>
+            <Typography variant="body2">
+              well meaning and kindly.
+              <br />
+              {'"a benevolent smile"'}
+            </Typography>
+          </div>
+        </CardContent>
+        <CardActions>
+          <Button size="small">Claim</Button>
+        </CardActions>
+      </Card>
+    </TableContainer>
+    </ThemeProvider>
+  );
+}
+
+export const ShopCards = (props) => {
+  return (
+    <React.Fragment>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      {props.items.map((row) => {
+        let title = String(row.item).split('(')
+        return <Grid item xs={1} sm={2} md={3} key={row.id}>
+          <BasicCard img={NormalMassageIcon} cost={row.cost} title={title.map(
+            (line, idx) => idx ? <div style={{fontSize: 12}}>{'('+line}</div> : <div>{line}</div>
+          )} />
+        </Grid>
+      })}
+      </Grid>
+    </React.Fragment>
+  )
+}
 
 const BasicTable = (props) => {
   return (
